@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Student List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .pagination {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Student List</h1>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Date of Birth</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterate over the students and populate the table rows -->
+        <tr th:each="student : ${students}">
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.surname}"></td>
+            <td th:text="${student.dateOfBirth}"></td>
+            <td th:text="${student.address}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <nav>
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:class="${currentPage == 1} ? 'disabled'">
+                <a class="page-link" th:href="@{?page=1}">First</a>
+            </li>
+            <li class="page-item" th:class="${currentPage == 1} ? 'disabled'">
+                <a class="page-link" th:href="@{?page=${currentPage - 1}}">Previous</a>
+            </li>
+            <li class="page-item" th:each="page : ${pages}">
+                <a class="page-link" th:href="@{?page=${page}}"><span th:text="${page}"></span></a>
+            </li>
+            <li class="page-item" th:class="${currentPage == totalPages} ? 'disabled'">
+                <a class="page-link" th:href="@{?page=${currentPage + 1}}">Next</a>
+            </li>
+            <li class="page-item" th:class="${currentPage == totalPages} ? 'disabled'">
+                <a class="page-link" th:href="@{?page=${totalPages}}">Last</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# ===================================================================#
+# SPRING CONFIGURATION PROPERTIES
+# ===================================================================#
+
+spring:
+  main:
+    banner-mode: OFF
+  application:
+    name: student_mgmt_system_app
+  # Database configuration
+  datasource:
+    name: student_mgmt_system_db
+    url: jdbc:postgresql://localhost:5432/student_mgmt_system_db
+    username: admin
+    password: admin
+  # Thymeleaf configuration
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    # Set to false for debugging and development purposes
+    cache: false
+
+server:
+  port: 8080
