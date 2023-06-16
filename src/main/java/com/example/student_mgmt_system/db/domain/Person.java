@@ -8,13 +8,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
+import lombok.Data;
 
 @Entity
+@Data
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private long ID;
 
     @Column(unique = true, nullable = false)
     private String EMBG;
@@ -32,7 +34,7 @@ public class Person {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "address_ID", nullable = false)
+    @JoinColumn(name = "address_id", nullable = false)
     private Address address;
 
 }

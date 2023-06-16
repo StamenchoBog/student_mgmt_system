@@ -9,7 +9,6 @@ spring:
     name: student_mgmt_system_app
   # Database configuration
   datasource:
-    name: student_mgmt_system_db
     url: jdbc:postgresql://localhost:5432/student_mgmt_system_db
     username: admin
     password: admin

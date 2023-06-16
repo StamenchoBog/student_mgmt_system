@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Student List</title>
+    <title>Address List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -26,23 +26,27 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="text-center">Student List</h1>
+    <h1 class="text-center">Addresses</h1>
     <table class="table table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Date of Birth</th>
-            <th>Address</th>
+            <th>Street Name</th>
+            <th>Street Number</th>
+            <th>Municipality</th>
+            <th>City</th>
+            <th>Zip Code</th>
+            <th>Country</th>
         </tr>
         </thead>
         <tbody>
-        <!-- Iterate over the students and populate the table rows -->
-        <tr th:each="student : ${students}">
-            <td th:text="${student.name}"></td>
-            <td th:text="${student.surname}"></td>
-            <td th:text="${student.dateOfBirth}"></td>
-            <td th:text="${student.address}"></td>
+        <!-- Iterate over the addresses and populate the table rows -->
+        <tr th:each="address : ${addresses}">
+            <td th:text="${address.getStreetName()}"></td>
+            <td th:text="${address.getStreetNumber()}"></td>
+            <td th:text="${address.getMunicipality()}"></td>
+            <td th:text="${address.getCity()}"></td>
+            <td th:text="${address.getZipcode()}"></td>
+            <td th:text="${address.getCountry()}"></td>
         </tr>
         </tbody>
     </table>
