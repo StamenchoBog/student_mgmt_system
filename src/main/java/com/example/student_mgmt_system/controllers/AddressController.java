@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/address")
+@RequestMapping("/addresses")
 public class AddressController {
 
     private final AddressRepository addressRepository;
@@ -34,6 +34,7 @@ public class AddressController {
         List<Address> addresses = addressPage.getContent();
         int totalPages = addressPage.getTotalPages();
         int currentPage = addressPage.getNumber(); // Get the current page number
+        model.addAttribute("pageUrl", "addresses");
         model.addAttribute("addresses", addresses);
         model.addAttribute("size", size);
         model.addAttribute("pageNumber", page);
