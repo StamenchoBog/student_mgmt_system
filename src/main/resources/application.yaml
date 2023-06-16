@@ -7,6 +7,9 @@ spring:
     banner-mode: OFF
   application:
     name: student_mgmt_system_app
+  # JPA
+  jpa:
+    open-in-view: false
   # Database configuration
   datasource:
     url: jdbc:postgresql://localhost:5432/student_mgmt_system_db
@@ -16,7 +19,7 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
-    mode: HTML5
+    mode: HTML
     encoding: UTF-8
     servlet:
       content-type: text/html
