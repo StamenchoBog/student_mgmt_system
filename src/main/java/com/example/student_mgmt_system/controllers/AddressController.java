@@ -28,7 +28,7 @@ public class AddressController {
     }
 
     @GetMapping
-    public String showAddressList(Model model,@RequestParam(value = "page", defaultValue = "0") int page,
+    public String showList(Model model,@RequestParam(value = "page", defaultValue = "0") int page,
                                   @RequestParam(value = "size", defaultValue = "10") int size) {
         Page<Address> addressPage = addressRepository.findAll(PageRequest.of(page, size));
         List<Address> addresses = addressPage.getContent();
@@ -55,7 +55,7 @@ public class AddressController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateAddress(@PathVariable("id") Long id, @Valid Address address,
+    public String update(@PathVariable("id") Long id, @Valid Address address,
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
             address.setId(id);
@@ -66,7 +66,7 @@ public class AddressController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteAddress(@PathVariable("id") Long id, Model model) {
+    public String delete(@PathVariable("id") Long id, Model model) {
         Address address = addressRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Invalid address ID:" + id));
         addressRepository.delete(address);

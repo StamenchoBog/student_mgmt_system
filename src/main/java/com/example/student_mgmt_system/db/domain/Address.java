@@ -1,15 +1,16 @@
 package com.example.student_mgmt_system.db.domain;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-@Entity(name = "address")
+@Entity
+@Table(name = "address")
 public class Address {
 
     @Id
@@ -18,12 +19,10 @@ public class Address {
     private Long id;
 
     @NotNull
-    @Column(name = "street_name")
-    private String streetName;
+    private String street_name;
 
     @NotNull
-    @Column(name = "street_number")
-    private int streetNumber;
+    private Integer street_number;
 
     @NotNull
     private String municipality;
@@ -32,37 +31,65 @@ public class Address {
     private String city;
 
     @NotNull
-    private String zipcode;
+    private Integer zipcode;
 
     @NotNull
     private String country;
 
     // Static defined getters and setters methods to be used with Thymeleaf
+    public @NotNull Long getId() {
+        return id;
+    }
+
     public String getStreetName() {
-        return streetName;
+        return street_name;
     }
 
     public int getStreetNumber() {
-        return streetNumber;
+        return street_number;
     }
 
-    public String getMunicipality() {
+    public @NotNull String getMunicipality() {
         return municipality;
     }
 
-    public String getCity() {
+    public @NotNull String getCity() {
         return city;
     }
 
-    public String getZipcode() {
+    public @NotNull Integer getZipcode() {
         return zipcode;
     }
 
-    public String getCountry() {
+    public @NotNull String getCountry() {
         return country;
     }
 
-    public void setId(Long ID) {
+    public void setId(@NotNull Long ID) {
         this.id = ID;
     };
+
+    public void setStreet_name(@NotNull String street_name) {
+        this.street_name = street_name;
+    }
+
+    public void setStreet_number(@NotNull Integer street_number) {
+        this.street_number = street_number;
+    }
+
+    public void setMunicipality(@NotNull String municipality) {
+        this.municipality = municipality;
+    }
+
+    public void setCity(@NotNull String city) {
+        this.city = city;
+    }
+
+    public void setZipcode(@NotNull Integer zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public void setCountry(@NotNull String country) {
+        this.country = country;
+    }
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Edit Address</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .btn {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Edit Address</h1>
+
+  <form th:action="@{/addresses/update/{id}(id=${address.getId()})}" method="post">
+    <div class="form-group">
+      <label for="street_name">Street Name:</label>
+      <input type="text" class="form-control" id="street_name" name="street_name" th:value="${address.getStreetName()}">
+    </div>
+    <div class="form-group">
+      <label for="street_number">Street Number:</label>
+      <input type="text" class="form-control" id="street_number" name="street_number" th:value="${address.getStreetNumber()}">
+    </div>
+    <div class="form-group">
+      <label for="municipality">Municipality:</label>
+      <input type="text" class="form-control" id="municipality" name="municipality" th:value="${address.getMunicipality()}">
+    </div>
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input type="text" class="form-control" id="city" name="city" th:value="${address.getCity()}">
+    </div>
+    <div class="form-group">
+      <label for="zipcode">Zip Code:</label>
+      <input type="text" class="form-control" id="zipcode" name="zipcode" th:value="${address.getZipcode()}">
+    </div>
+    <div class="form-group">
+      <label for="country">Country:</label>
+      <input type="text" class="form-control" id="country" name="country" th:value="${address.getCountry()}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a th:href="@{/addresses}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
