@@ -36,6 +36,7 @@
             <th>City</th>
             <th>Zip Code</th>
             <th>Country</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -47,6 +48,10 @@
             <td th:text="${address.getCity()}"></td>
             <td th:text="${address.getZipcode()}"></td>
             <td th:text="${address.getCountry()}"></td>
+            <td>
+                <a th:href="@{addresses/edit/{id}(id=${address.getId()})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{addresses/delete/{id}(id=${address.getId()})}" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>

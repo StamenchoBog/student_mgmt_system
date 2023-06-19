@@ -1,12 +1,12 @@
 package com.example.student_mgmt_system.db.domain;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -14,8 +14,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "person")
-public class Person {
+@Table(name = "disciplinary_action")
+public class DisciplinaryAction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,24 +23,22 @@ public class Person {
     private Long id;
 
     @NotNull
-    @Column(unique = true)
-    private String embg;
+    private String cause;
 
     @NotNull
-    private String name;
+    private LocalDate start_date;
 
     @NotNull
-    private String surname;
+    private LocalDate end_date;
 
     @NotNull
-    private LocalDate date_of_birth;
-
-    @NotNull
-    @Column(unique = true)
-    private String email;
+    private String consequence;
 
     @ManyToOne
-    @JoinColumn(name = "address_id", nullable = false)
-    private Address address;
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
 
+    @ManyToOne
+    @JoinColumn(name = "student_person_id", nullable = false)
+    private Student student;
 }

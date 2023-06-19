@@ -1,6 +1,5 @@
 package com.example.student_mgmt_system.db.domain;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,8 +13,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "person")
-public class Person {
+@Table(name = "exam")
+public class Exam {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,24 +22,16 @@ public class Person {
     private Long id;
 
     @NotNull
-    @Column(unique = true)
-    private String embg;
+    private Integer points;
 
     @NotNull
-    private String name;
-
-    @NotNull
-    private String surname;
-
-    @NotNull
-    private LocalDate date_of_birth;
-
-    @NotNull
-    @Column(unique = true)
-    private String email;
+    private LocalDate exam_date;
 
     @ManyToOne
-    @JoinColumn(name = "address_id", nullable = false)
-    private Address address;
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
 
+    @ManyToOne
+    @JoinColumn(name = "student_person_id", nullable = false)
+    private Student student;
 }
