@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Address List</title>
+    <title>Students List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -26,39 +26,20 @@
 <div th:replace="~{fragments/_menu_bar :: menu_bar}"></div>
 
 <div class="container">
-    <h1 class="text-center">Addresses</h1>
-    <form th:action="@{/address}" method="GET">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" name="keyword" placeholder="Search by keyword">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Search</button>
-            </div>
-        </div>
-    </form>
+    <h1 class="text-center">Students</h1>
     <table class="table table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Street Name</th>
-            <th>Street Number</th>
-            <th>Municipality</th>
-            <th>City</th>
-            <th>Zip Code</th>
-            <th>Country</th>
-            <th>Actions</th>
+            <!--- TODO: Fill with fiels for student --->
         </tr>
         </thead>
         <tbody>
-        <!-- Iterate over the addresses and populate the table rows -->
-        <tr th:each="address : ${addresses}">
-            <td th:text="${address.getStreetName()}"></td>
-            <td th:text="${address.getStreetNumber()}"></td>
-            <td th:text="${address.getMunicipality()}"></td>
-            <td th:text="${address.getCity()}"></td>
-            <td th:text="${address.getZipcode()}"></td>
-            <td th:text="${address.getCountry()}"></td>
+        <!-- Iterate over the students and populate the table rows -->
+        <tr th:each="student : ${students}">
+            <!--- TODO: Fill with fiels for student --->
             <td>
-                <a th:href="@{addresses/edit/{id}(id=${address.getId()})}" class="btn btn-primary">Edit</a>
-                <a th:href="@{addresses/delete/{id}(id=${address.getId()})}" class="btn btn-danger">Delete</a>
+                <a th:href="@{students/edit/{id}(id=${student.getPerson_id()})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{students/delete/{id}(id=${student.getPerson_id()})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>
