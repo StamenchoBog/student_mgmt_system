@@ -43,4 +43,35 @@ public class Person {
     @JoinColumn(name = "address_id", nullable = false)
     private Address address;
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getEmbg() {
+        return embg;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public LocalDate getDate_of_birth() {
+        return date_of_birth;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getFullName() {
+        return name + " " + surname;
+    }
 }

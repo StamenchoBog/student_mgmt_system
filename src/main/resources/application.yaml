@@ -12,7 +12,7 @@ spring:
     open-in-view: false
   # Database configuration
   datasource:
-    url: jdbc:postgresql://localhost:5432/student_mgmt_system_db
+    url: jdbc:postgresql://localhost:9999/student_mgmt_system_db
     username: admin
     password: admin
   # Thymeleaf configuration

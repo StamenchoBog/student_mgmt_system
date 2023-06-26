@@ -26,20 +26,29 @@
 <div th:replace="~{fragments/_menu_bar :: menu_bar}"></div>
 
 <div class="container">
+    <a th:href="@{students/create}" class="btn btn-primary">Add new student</a>
     <h1 class="text-center">Students</h1>
     <table class="table table-striped">
         <thead class="thead-dark">
         <tr>
-            <!--- TODO: Fill with fiels for student --->
+            <th>Student Name</th>
+            <th>Date of Birth</th>
+            <th>Embg</th>
+            <th>Email</th>
+            <th>Major</th>
         </tr>
         </thead>
         <tbody>
         <!-- Iterate over the students and populate the table rows -->
         <tr th:each="student : ${students}">
-            <!--- TODO: Fill with fiels for student --->
+            <td th:text="${student.getStudentName()}"></td>
+            <td th:text="${student.getDateOfBirth()}"></td>
+            <td th:text="${student.getEmbg()}"></td>
+            <td th:text="${student.getEmail()}"></td>
+            <td th:text="${student.getMajor()}"></td>
             <td>
-                <a th:href="@{students/edit/{id}(id=${student.getPerson_id()})}" class="btn btn-primary">Edit</a>
-                <a th:href="@{students/delete/{id}(id=${student.getPerson_id()})}" class="btn btn-danger">Delete</a>
+                <!-- <a th:href="@{students/edit/{id}(id=${student.getPerson_id()})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{students/delete/{id}(id=${student.getPerson_id()})}" class="btn btn-danger">Delete</a> -->
             </td>
         </tr>
         </tbody>

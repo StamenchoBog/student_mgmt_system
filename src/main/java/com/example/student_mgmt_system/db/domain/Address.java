@@ -1,16 +1,15 @@
 package com.example.student_mgmt_system.db.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-@Entity
-@Table(name = "address")
+@Entity(name = "address")
 public class Address {
 
     @Id
@@ -19,10 +18,12 @@ public class Address {
     private Long id;
 
     @NotNull
-    private String street_name;
+    @Column(name = "street_name")
+    private String streetName;
 
     @NotNull
-    private Integer street_number;
+    @Column(name = "street_number")
+    private int streetNumber;
 
     @NotNull
     private String municipality;
@@ -31,65 +32,42 @@ public class Address {
     private String city;
 
     @NotNull
-    private Integer zipcode;
+    private String zipcode;
 
     @NotNull
     private String country;
 
     // Static defined getters and setters methods to be used with Thymeleaf
-    public @NotNull Long getId() {
+
+    public Long getId() {
         return id;
     }
 
     public String getStreetName() {
-        return street_name;
+        return streetName;
     }
 
     public int getStreetNumber() {
-        return street_number;
+        return streetNumber;
     }
 
-    public @NotNull String getMunicipality() {
+    public String getMunicipality() {
         return municipality;
     }
 
-    public @NotNull String getCity() {
+    public String getCity() {
         return city;
     }
 
-    public @NotNull Integer getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public @NotNull String getCountry() {
+    public String getCountry() {
         return country;
     }
 
-    public void setId(@NotNull Long ID) {
+    public void setId(Long ID) {
         this.id = ID;
     };
-
-    public void setStreet_name(@NotNull String street_name) {
-        this.street_name = street_name;
-    }
-
-    public void setStreet_number(@NotNull Integer street_number) {
-        this.street_number = street_number;
-    }
-
-    public void setMunicipality(@NotNull String municipality) {
-        this.municipality = municipality;
-    }
-
-    public void setCity(@NotNull String city) {
-        this.city = city;
-    }
-
-    public void setZipcode(@NotNull Integer zipcode) {
-        this.zipcode = zipcode;
-    }
-
-    public void setCountry(@NotNull String country) {
-        this.country = country;
-    }
 }

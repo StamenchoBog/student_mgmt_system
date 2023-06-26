@@ -70,4 +70,8 @@ public class Student {
     public void setGroup(Group group) {
         this.group = group;
     }
+
+    public void setId(Long id) {
+        this.person_id = id;
+    }
 }

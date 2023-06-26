@@ -42,7 +42,7 @@ public class AddressController {
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("hasPreviousPage", currentPage > 0); // Check if previous page exists
         model.addAttribute("hasNextPage", currentPage < totalPages - 1); // Check if next page exists
-        return "addresses";
+        return "addresses.html";
     }
 
     @GetMapping("/edit/{id}")

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Add new student</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .btn {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Add a new student</h1>
+
+  <form th:action="@{/students/publish}" method="post">
+    <div class="form-group">
+      <label for="s_embg">Embg:</label>
+      <input type="text" class="form-control" id="s_embg" name="s_embg">
+    </div>
+    <div class="form-group">
+      <label for="s_name">Name:</label>
+      <input type="text" class="form-control" id="s_name" name="s_name">
+    </div>
+    <div class="form-group">
+      <label for="s_surname">Surname:</label>
+      <input type="text" class="form-control" id="s_surname" name="s_surname">
+    </div>
+    <div class="form-group">
+      <label for="s_date_of_birth">Date of Birth:</label>
+      <input type="date" class="form-control" id="s_date_of_birth" name="s_date_of_birth">
+    </div>
+    <div class="form-group">
+      <label for="s_email">Email:</label>
+      <input type="email" class="form-control" id="s_email" name="s_email">
+    </div>
+    <div class="form-group">
+      <label for="street_name">Street Name:</label>
+      <input type="text" class="form-control" id="street_name" name="street_name">
+    </div>
+    <div class="form-group">
+      <label for="street_num">Street Number:</label>
+      <input type="number" class="form-control" id="street_num" name="street_num">
+    </div>
+    <div class="form-group">
+      <label for="munic">Municipality:</label>
+      <input type="text" class="form-control" id="munic" name="munic">
+    </div>
+    <div class="form-group">
+      <label for="city_name">City:</label>
+      <input type="text" class="form-control" id="city_name" name="city_name">
+    </div>
+    <div class="form-group">
+      <label for="zip">Zipcode:</label>
+      <input type="number" class="form-control" id="zip" name="zip">
+    </div>
+    <div class="form-group">
+      <label for="country_name">Country:</label>
+      <input type="text" class="form-control" id="country_name" name="country_name">
+    </div>
+    <div class="form-group">
+      <label for="s_study_program_name">Study Program:</label>
+      <input type="text" class="form-control" id="s_study_program_name" name="s_study_program_name">
+    </div>
+    <div class="form-group">
+      <label for="s_scholarship">Scholarship Number:</label>
+      <input type="number" class="form-control" id="s_scholarship" name="s_scholarship">
+    </div>
+    <div class="form-group">
+      <label for="s_group_name">Group Name:</label>
+      <input type="text" class="form-control" id="s_group_name" name="s_group_name">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a th:href="@{/students}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

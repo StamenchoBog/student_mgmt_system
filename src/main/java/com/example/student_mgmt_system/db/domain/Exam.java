@@ -34,4 +34,24 @@ public class Exam {
     @ManyToOne
     @JoinColumn(name = "student_person_id", nullable = false)
     private Student student;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public LocalDate getExam_date() {
+        return exam_date;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
 }
