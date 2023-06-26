@@ -52,6 +52,22 @@ public class Course {
         inverseJoinColumns = @JoinColumn(name = "educator_person_id"))
     private Set<Educator> educators;
 
+    public String getName() {
+        return name;
+    }
+
+    public Integer getCredits() {
+        return credits;
+    }
+
+    public Integer getSemestar() {
+        return semestar;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
     @ManyToMany
     @JoinTable(
         name = "course_course",

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Add new course</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .btn {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Add a new course</h1>
+
+  <form th:action="@{/courses/publish}" method="post">
+    <div class="form-group">
+      <label for="c_name">Course name:</label>
+      <input type="text" class="form-control" id="c_name" name="c_name">
+    </div>
+    <div class="form-group">
+      <label for="c_credits">Course credits:</label>
+      <input type="number" class="form-control" id="c_credits" name="c_credits">
+    </div>
+    <div class="form-group">
+      <label for="c_semester">Semester:</label>
+      <input type="number" class="form-control" id="c_semester" name="c_semester">
+    </div>
+    <div class="form-group">
+      <label for="c_level">Course level:</label>
+      <input type="number" class="form-control" id="c_level" name="c_level">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Submit</button>
+    <a th:href="@{/courses}" class="btn btn-warning">Cancel</a>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
