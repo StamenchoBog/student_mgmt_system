@@ -50,10 +50,22 @@ public class CoursesController {
     public String update(@RequestParam("c_name") String c_name,
                          @RequestParam("c_credits") Integer c_credits,
                          @RequestParam("c_semester") Integer c_semester,
-                         @RequestParam("c_level") Integer c_level)
-    {
-        coursesRepository.course_insert(c_name,c_credits,c_semester,c_level);
+                         @RequestParam("c_level") Integer c_level) {
+        coursesRepository.course_insert(c_name, c_credits, c_semester, c_level);
         return "redirect:/courses";
+    }
+
+    @GetMapping("/enroll-student")
+    public String enrollStudentForm(Model model) {
+//        model.addAttribute("course", new Course());
+        return "enroll-student";
+    }
+
+    @PostMapping("/publish-enroll-student")
+    public String enrollStudent(@RequestParam("student_id") Long student_id,
+                                @RequestParam("course_name") String course_name) {
+        coursesRepository.enroll_in_course(student_id, course_name);
+        return "redirect:/courses/enroll-student";
     }
 }
 

@@ -12,4 +12,10 @@ public interface CoursesRepository extends JpaRepository<Course, Long> {
                        @Param("c_semester") Integer c_semester,
                        @Param("c_level") Integer c_level
     );
+
+    @Procedure(name = "enroll_in_course")
+    void enroll_in_course(
+            @Param("student_id") Long student_id,
+            @Param("course_name") String course_name
+    );
 }
